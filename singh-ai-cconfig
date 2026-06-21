@@ -1,0 +1,459 @@
+"""
+Singh Ji AI — Multi-Language Configuration
+22 Indian Languages Support
+"""
+
+# Language Profiles
+LANGUAGE_PROFILES = {
+    'hi': {'name':'Hindi','script':'Devanagari','chars':'अआइईउऊऋएऐओऔअंअःकखगघङचछजझञटठडढणतथदधनपफबभमयरलवशषसह','tts_code':'hi-IN','fallback':'hi'},
+    'bn': {'name':'Bengali','script':'Bengali','chars':'অআইঈউঊঋএঐওঔকখগঘঙচছজঝঞটঠডঢণতথদধনপফবভমযরলশষসহ','tts_code':'bn-IN','fallback':'bn'},
+    'pa': {'name':'Punjabi','script':'Gurmukhi','chars':'ਅਆਇਈਉਊਏਐਓਔਕਖਗਘਙਚਛਜਝਞਟਠਡਢਣਤਥਦਧਨਪਫਬਭਮਯਰਲਵਸ਼ਸਹ','tts_code':'pa-IN','fallback':'hi'},
+    'mr': {'name':'Marathi','script':'Devanagari','chars':'अआइईउऊऋएऐओऔअंअःकखगघङचछजझञटठडढणतथदधनपफबभमयरलवशषसह','tts_code':'mr-IN','fallback':'hi'},
+    'bho': {'name':'Bhojpuri','script':'Devanagari','chars':'अआइईउऊऋएऐओऔअंअःकखगघङचछजझञटठडढणतथदधनपफबभमयरलवशषसह','tts_code':'hi-IN','fallback':'hi'},
+    'ta': {'name':'Tamil','script':'Tamil','chars':'அஆஇஈஉஊஎஏஐஒஓஔகஙசஜஞடணதநனபமயரலவழளறன','tts_code':'ta-IN','fallback':'en'},
+    'te': {'name':'Telugu','script':'Telugu','chars':'అఆఇఈఉఊఋఎఏఐఒఓఔకఖగఘఙచఛజఝఞటఠడఢణతథదధనపఫబభమయరలవశషసహ','tts_code':'te-IN','fallback':'en'},
+    'gu': {'name':'Gujarati','script':'Gujarati','chars':'અઆઇઈઉઊઋએઐઓઔકખગઘઙચછજઝઞટઠડઢણતથદધનપફબભમયરલવશષસહ','tts_code':'gu-IN','fallback':'hi'},
+    'kn': {'name':'Kannada','script':'Kannada','chars':'ಅಆಇಈಉಊಋಎಏಐಒಓಔಕಖಗಘಙಚಛಜಝಞಟಠಡಢಣತಥದಧನಪಫಬಭಮಯರಲವಶಷಸಹ','tts_code':'kn-IN','fallback':'en'},
+    'ml': {'name':'Malayalam','script':'Malayalam','chars':'അആഇഈഉഊഋഎഏഐഒഓഔകഖഗഘങചഛജഝഞടഠഡഢണതഥദധനപഫബഭമയരലവശഷസഹ','tts_code':'ml-IN','fallback':'en'},
+    'or': {'name':'Odia','script':'Odia','chars':'ଅଆଇଈଉଊଋଏଐଓଔକଖଗଘଙଚଛଜଝଞଟଠଡଢଣତଥଦଧନପଫବଭମଯରଲବଶଷସହ','tts_code':'or-IN','fallback':'en'},
+    'ur': {'name':'Urdu','script':'Perso-Arabic','chars':'ابپتٹثجچحخدڈذرڑزژسشصضطظعغفقکگلمنوہھیے','tts_code':'ur-PK','fallback':'hi'},
+    'as': {'name':'Assamese','script':'Bengali','chars':'অআইঈউঊঋএঐওঔকখগঘঙচছজঝঞটঠডঢণতথদধনপফবভমযৰলশষসহ','tts_code':'as-IN','fallback':'bn'},
+    'ne': {'name':'Nepali','script':'Devanagari','chars':'अआइईउऊऋएऐओऔअंअःकखगघङचछजझञटठडढणतथदधनपफबभमयरलवशषसह','tts_code':'ne-NP','fallback':'hi'},
+    'si': {'name':'Sindhi','script':'Perso-Arabic','chars':'ابپتٹثجچحخدڈذرڑزژسشصضطظعغفقکگلمنوہھیے','tts_code':'ur-PK','fallback':'ur'},
+    'ks': {'name':'Kashmiri','script':'Perso-Arabic','chars':'ابپتٹثجچحخدڈذرڑزژسشصضطظعغفقکگلمنوہھیے','tts_code':'ur-PK','fallback':'ur'},
+    'kok': {'name':'Konkani','script':'Devanagari','chars':'अआइईउऊऋएऐओऔअंअःकखगघङचछजझञटठडढणतथदधनपफबभमयरलवशषसह','tts_code':'hi-IN','fallback':'hi'},
+    'mai': {'name':'Maithili','script':'Devanagari','chars':'अआइईउऊऋएऐओऔअंअःकखगघङचछजझञटठडढणतथदधनपफबभमयरलवशषसह','tts_code':'hi-IN','fallback':'hi'},
+    'mni': {'name':'Manipuri','script':'Bengali','chars':'অআইঈউঊঋএঐওঔকখগঘঙচছজঝঞটঠডঢণতথদধনপফবভমযরলশষসহ','tts_code':'mni-IN','fallback':'bn'},
+    'sat': {'name':'Santali','script':'Ol Chiki','chars':'ᱟᱹᱤᱩᱮᱳᱚᱛᱜᱝᱞᱠᱡᱢᱣᱤᱥᱦᱧᱨᱩᱪᱫᱬᱭᱮᱯᱰᱱᱲᱳᱴᱵᱶᱷᱸᱹᱺᱻᱼᱽ','tts_code':'sat-IN','fallback':'hi'},
+    'sd': {'name':'Sanskrit','script':'Devanagari','chars':'अआइईउऊऋएऐओऔअंअःकखगघङचछजझञटठडढणतथदधनपफबभमयरलवशषसह','tts_code':'hi-IN','fallback':'hi'},
+    'en': {'name':'English','script':'Latin','chars':'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ','tts_code':'en-US','fallback':'en'}
+}
+
+# Response Templates
+RESPONSE_TEMPLATES = {
+    'hi': {
+        'train_status':'ट्रेन {number} अभी {location} स्टेशन पर है। अनुमानित आगमन: {eta}।',
+        'train_delayed':'ट्रेन {number} {delay} मिनट लेट है। अभी {location} पर है।',
+        'train_arrived':'ट्रेन {number} {location} स्टेशन पहुँच चुकी है।',
+        'mandi_rate':'{commodity} का भाव ₹{price} प्रति क्विंटल। बाजार: {market}।',
+        'mandi_update':'{market} में {commodity} ₹{price} प्रति क्विंटल।',
+        'weather':'{city} में मौसम: {condition}, तापमान {temp}°C। नमी {humidity}%。',
+        'weather_forecast':'{city} का पूर्वानुमान: {condition}, अधिकतम {max_temp}°C, न्यूनतम {min_temp}°C।',
+        'greeting':'नमस्ते! 🙏 मैं Singh Ji AI हूँ। ट्रेन, मंडी भाव, या मौसम की जानकारी चाहिए?',
+        'help':'मैं आपकी मदद कर सकता हूँ:
+🚂 ट्रेन की स्थिति
+🌾 मंडी भाव
+🌤️ मौसम जानकारी
+क्या जानना चाहेंगे?',
+        'error':'माफ़ कीजिए, कुछ गड़बड़ हो गई। कृपया फिर से कोशिश करें।',
+        'not_found':'माफ़ कीजिए, इसकी जानकारी नहीं मिली। कृपया सही विवरण दें।',
+        'welcome':'Singh Ji AI में आपका स्वागत है! 🙏'
+    },
+    'bn': {
+        'train_status':'ট্রেন {number} এখন {location} স্টেশনে আছে। আসার সময়: {eta}।',
+        'train_delayed':'ট্রেন {number} {delay} মিনিট দেরি করছে। এখন {location} এ আছে।',
+        'train_arrived':'ট্রেন {number} {location} স্টেশনে পৌঁছে গেছে।',
+        'mandi_rate':'{commodity} এর দর ₹{price} প্রতি কুইন্টাল। বাজার: {market}।',
+        'mandi_update':'{market} এ {commodity} ₹{price} প্রতি কুইন্টাল।',
+        'weather':'{city} তে আবহাওয়া: {condition}, তাপমাত্রা {temp}°C। আর্দ্রতা {humidity}%。',
+        'weather_forecast':'{city} এর পূর্বাভাস: {condition}, সর্বোচ্চ {max_temp}°C, সর্বনিম্ন {min_temp}°C।',
+        'greeting':'নমস্কার! 🙏 আমি Singh Ji AI। ট্রেন, মণ্ডি দর, বা আবহাওয়ার তথ্য চান?',
+        'help':'আমি আপনাকে সাহায্য করতে পারি:
+🚂 ট্রেনের অবস্থা
+🌾 মণ্ডি দর
+🌤️ আবহাওয়া তথ্য
+কী জানতে চান?',
+        'error':'দুঃখিত, কিছু সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।',
+        'not_found':'দুঃখিত, এই তথ্য পাওয়া যায়নি। সঠিক বিবরণ দিন।',
+        'welcome':'Singh Ji AI তে স্বাগতম! 🙏'
+    },
+    'pa': {
+        'train_status':'ਟ੍ਰੇਨ {number} ਹੁਣ {location} ਸਟੇਸ਼ਨ 'ਤੇ ਹੈ। ਪਹੁੰਚਣ ਦਾ ਸਮਾਂ: {eta}।',
+        'train_delayed':'ਟ੍ਰੇਨ {number} {delay} ਮਿੰਟ ਲੇਟ ਹੈ। ਹੁਣ {location} 'ਤੇ ਹੈ।',
+        'train_arrived':'ਟ੍ਰੇਨ {number} {location} ਸਟੇਸ਼ਨ ਪਹੁੰਚ ਚੁੱਕੀ ਹੈ।',
+        'mandi_rate':'{commodity} ਦਾ ਭਾਅ ₹{price} ਪ੍ਰਤੀ ਕੁਇੰਟਲ। ਮੰਡੀ: {market}।',
+        'mandi_update':'{market} ਵਿੱਚ {commodity} ₹{price} ਪ੍ਰਤੀ ਕੁਇੰਟਲ।',
+        'weather':'{city} ਵਿੱਚ ਮੌਸਮ: {condition}, ਤਾਪਮਾਨ {temp}°C। ਨਮੀ {humidity}%。',
+        'weather_forecast':'{city} ਦਾ ਪੂਰਵਾਨੁਮਾਨ: {condition}, ਵੱਧ ਤੋਂ ਵੱਧ {max_temp}°C, ਘੱਟੋ ਘੱਟ {min_temp}°C।',
+        'greeting':'ਸਤ ਸ੍ਰੀ ਅਕਾਲ! 🙏 ਮੈਂ Singh Ji AI ਹਾਂ। ਟ੍ਰੇਨ, ਮੰਡੀ ਭਾਅ, ਜਾਂ ਮੌਸਮ ਦੀ ਜਾਣਕਾਰੀ ਚਾਹੀਦੀ ਹੈ?',
+        'help':'ਮੈਂ ਤੁਹਾਡੀ ਮਦਦ ਕਰ ਸਕਦਾ ਹਾਂ:
+🚂 ਟ੍ਰੇਨ ਦੀ ਸਥਿਤੀ
+🌾 ਮੰਡੀ ਭਾਅ
+🌤️ ਮੌਸਮ ਜਾਣਕਾਰੀ
+ਕੀ ਜਾਣਨਾ ਚਾਹੋਗੇ?',
+        'error':'ਮਾਫ਼ ਕਰਨਾ, ਕੁਝ ਗੜਬੜ ਹੋ ਗਈ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
+        'not_found':'ਮਾਫ਼ ਕਰਨਾ, ਇਸ ਦੀ ਜਾਣਕਾਰੀ ਨਹੀਂ ਮਿਲੀ। ਕਿਰਪਾ ਕਰਕੇ ਸਹੀ ਵੇਰਵਾ ਦਿਓ।',
+        'welcome':'Singh Ji AI ਵਿੱਚ ਜੀ ਆਇਆਂ ਨੂੰ! 🙏'
+    },
+    'mr': {
+        'train_status':'ट्रेन {number} आता {location} स्थानकावर आहे. अपेक्षित आगमन: {eta}.',
+        'train_delayed':'ट्रेन {number} {delay} मिनिटे उशीर आहे. आता {location} वर आहे.',
+        'train_arrived':'ट्रेन {number} {location} स्थानकावर पोहोचली आहे.',
+        'mandi_rate':'{commodity} चा भाव ₹{price} प्रति क्विंटल. बाजार: {market}.',
+        'mandi_update':'{market} मध्ये {commodity} ₹{price} प्रति क्विंटल.',
+        'weather':'{city} मध्ये हवामान: {condition}, तापमान {temp}°C. आर्द्रता {humidity}%.',
+        'weather_forecast':'{city} चा अंदाज: {condition}, कमाल {max_temp}°C, किमान {min_temp}°C.',
+        'greeting':'नमस्कार! 🙏 मी Singh Ji AI आहे. ट्रेन, मंडी भाव, किंवा हवामान माहिती हवी आहे?',
+        'help':'मी तुम्हाला मदत करू शकतो:
+🚂 ट्रेनची स्थिती
+🌾 मंडी भाव
+🌤️ हवामान माहिती
+काय जाणून घ्यायचे आहे?',
+        'error':'क्षमस्व, काहीतरी चूक झाली. कृपया पुन्हा प्रयत्न करा.',
+        'not_found':'क्षमस्व, ही माहिती सापडली नाही. कृपया योग्य तपशील द्या.',
+        'welcome':'Singh Ji AI मध्ये आपले स्वागत आहे! 🙏'
+    },
+    'bho': {
+        'train_status':'ट्रेन {number} अभी {location} स्टेशन पर बा। आवे के समय: {eta}।',
+        'train_delayed':'ट्रेन {number} {delay} मिनट लेट बा। अभी {location} पर बा।',
+        'train_arrived':'ट्रेन {number} {location} स्टेशन पहुँच गइल बा।',
+        'mandi_rate':'{commodity} के भाव ₹{price} प्रति क्विंटल। मंडी: {market}।',
+        'mandi_update':'{market} में {commodity} ₹{price} प्रति क्विंटल।',
+        'weather':'{city} में मौसम: {condition}, तापमान {temp}°C। नमी {humidity}%。',
+        'weather_forecast':'{city} के पूर्वानुमान: {condition}, जादा से जादा {max_temp}°C, कम से कम {min_temp}°C।',
+        'greeting':'प्रणाम! 🙏 हम Singh Ji AI बानी। ट्रेन, मंडी भाव, या मौसम के जानकारी चाही?',
+        'help':'हम आपके मदद कर सकत बानी:
+🚂 ट्रेन के स्थिति
+🌾 मंडी भाव
+🌤️ मौसम जानकारी
+का जानल चाहत बानी?',
+        'error':'माफ़ करीं, कुछ गड़बड़ हो गइल। कृपया फिर से कोशिश करीं।',
+        'not_found':'माफ़ करीं, इ जानकारी नइखे मिलल। कृपया सही बिवरण दीं।',
+        'welcome':'Singh Ji AI में आपके स्वागत बा! 🙏'
+    },
+    'ta': {
+        'train_status':'ரயில் {number} தற்போது {location} நிலையத்தில் உள்ளது. வருகை நேரம்: {eta}.',
+        'train_delayed':'ரயில் {number} {delay} நிமிடங்கள் தாமதமாக உள்ளது. தற்போது {location} இல் உள்ளது.',
+        'train_arrived':'ரயில் {number} {location} நிலையத்தை அடைந்துவிட்டது.',
+        'mandi_rate':'{commodity} விலை ₹{price} ஒரு குவிண்டாலுக்கு. சந்தை: {market}.',
+        'mandi_update':'{market} இல் {commodity} ₹{price} ஒரு குவிண்டாலுக்கு.',
+        'weather':'{city} வானிலை: {condition}, வெப்பநிலை {temp}°C. ஈரப்பதம் {humidity}%.',
+        'weather_forecast':'{city} முன்னறிவிப்பு: {condition}, அதிகபட்சம் {max_temp}°C, குறைந்தபட்சம் {min_temp}°C.',
+        'greeting':'வணக்கம்! 🙏 நான் Singh Ji AI. ரயில், மண்டி விலை, அல்லது வானிலை தகவல் வேண்டுமா?',
+        'help':'நான் உங்களுக்கு உதவ முடியும்:
+🚂 ரயில் நிலை
+🌾 மண்டி விலை
+🌤️ வானிலை தகவல்
+என்ன தெரிந்து கொள்ள விரும்புகிறீர்கள்?',
+        'error':'மன்னிக்கவும், ஏதோ தவறு ஏற்பட்டது. மீண்டும் முயற்சிக்கவும்.',
+        'not_found':'மன்னிக்கவும், இந்த தகவல் கிடைக்கவில்லை. சரியான விவரங்களைக் கொடுக்கவும்.',
+        'welcome':'Singh Ji AI க்கு வரவேற்கிறோம்! 🙏'
+    },
+    'te': {
+        'train_status':'రైలు {number} ప్రస్తుతం {location} స్టేషన్‌లో ఉంది. వచ్చే సమయం: {eta}.',
+        'train_delayed':'రైలు {number} {delay} నిమిషాలు ఆలస్యమైంది. ప్రస్తుతం {location} లో ఉంది.',
+        'train_arrived':'రైలు {number} {location} స్టేషన్‌కు చేరుకుంది.',
+        'mandi_rate':'{commodity} ధర ₹{price} క్వింటాకు. మార్కెట్: {market}.',
+        'mandi_update':'{market} లో {commodity} ₹{price} క్వింటాకు.',
+        'weather':'{city} వాతావరణం: {condition}, ఉష్ణోగ్రత {temp}°C. తేమ {humidity}%.',
+        'weather_forecast':'{city} సూచన: {condition}, గరిష్ట {max_temp}°C, కనిష్ట {min_temp}°C.',
+        'greeting':'నమస్కారం! 🙏 నేను Singh Ji AI. రైలు, మండి ధర, లేదా వాతావరణ సమాచారం కావాలా?',
+        'help':'నేను మీకు సహాయం చేయగలను:
+🚂 రైలు స్థితి
+🌾 మండి ధర
+🌤️ వాతావరణ సమాచారం
+ఏమి తెలుసుకోవాలనుకుంటున్నారు?',
+        'error':'క్షమించండి, ఏదో తప్పు జరిగింది. దయచేసి మళ్ళీ ప్రయత్నించండి.',
+        'not_found':'క్షమించండి, ఈ సమాచారం దొరకలేదు. దయచేసి సరైన వివరాలు ఇవ్వండి.',
+        'welcome':'Singh Ji AI కు స్వాగతం! 🙏'
+    },
+    'gu': {
+        'train_status':'રેલ્વે {number} હાલ {location} સ્ટેશન પર છે. આગમન સમય: {eta}.',
+        'train_delayed':'રેલ્વે {number} {delay} મિનિટ મોડું છે. હાલ {location} પર છે.',
+        'train_arrived':'રેલ્વે {number} {location} સ્ટેશન પહોંચી ગઈ છે.',
+        'mandi_rate':'{commodity} નો ભાવ ₹{price} દર ક્વિન્ટલ. બજાર: {market}.',
+        'mandi_update':'{market} માં {commodity} ₹{price} દર ક્વિન્ટલ.',
+        'weather':'{city} નું હવામાન: {condition}, તાપમાન {temp}°C. ભેજ {humidity}%.',
+        'weather_forecast':'{city} નું પૂર્વાનુમાન: {condition}, મહત્તમ {max_temp}°C, ન્યૂનતમ {min_temp}°C.',
+        'greeting':'નમસ્તે! 🙏 હું Singh Ji AI છું. રેલ્વે, મંડી ભાવ, અથવા હવામાન માહિતી જોઈએ છે?',
+        'help':'હું તમારી મદદ કરી શકું છું:
+🚂 રેલ્વેની સ્થિતિ
+🌾 મંડી ભાવ
+🌤️ હવામાન માહિતી
+શું જાણવું છે?',
+        'error':'માફ કરશો, કંઈક ખોટું થયું. કૃપા કરીને ફરી પ્રયાસ કરો.',
+        'not_found':'માફ કરશો, આ માહિતી મળી નથી. કૃપા કરીને સાચી વિગતો આપો.',
+        'welcome':'Singh Ji AI માં આપનું સ્વાગત છે! 🙏'
+    },
+    'kn': {
+        'train_status':'ರೈಲು {number} ಪ್ರಸ್ತುತ {location} ನಿಲ್ದಾಣದಲ್ಲಿದೆ. ಆಗಮನ ಸಮಯ: {eta}.',
+        'train_delayed':'ರೈಲು {number} {delay} ನಿಮಿಷಗಳು ತಡವಾಗಿದೆ. ಪ್ರಸ್ತುತ {location} ನಲ್ಲಿ ಇದೆ.',
+        'train_arrived':'ರೈಲು {number} {location} ನಿಲ್ದಾಣವನ್ನು ತಲುಪಿದೆ.',
+        'mandi_rate':'{commodity} ಬೆಲೆ ₹{price} ಪ್ರತಿ ಕ್ವಿಂಟಾಲ್. ಮಾರುಕಟ್ಟೆ: {market}.',
+        'mandi_update':'{market} ನಲ್ಲಿ {commodity} ₹{price} ಪ್ರತಿ ಕ್ವಿಂಟಾಲ್.',
+        'weather':'{city} ಹವಾಮಾನ: {condition}, ತಾಪಮಾನ {temp}°C. ಆರ್ದ್ರತೆ {humidity}%.',
+        'weather_forecast':'{city} ಮುನ್ಸೂಚನೆ: {condition}, ಗರಿಷ್ಠ {max_temp}°C, ಕನಿಷ್ಠ {min_temp}°C.',
+        'greeting':'ನಮಸ್ಕಾರ! 🙏 ನಾನು Singh Ji AI. ರೈಲು, ಮಂಡಿ ಬೆಲೆ, ಅಥವಾ ಹವಾಮಾನ ಮಾಹಿತಿ ಬೇಕೇ?',
+        'help':'ನಾನು ನಿಮಗೆ ಸಹಾಯ ಮಾಡಬಹುದು:
+🚂 ರೈಲು ಸ್ಥಿತಿ
+🌾 ಮಂಡಿ ಬೆಲೆ
+🌤️ ಹವಾಮಾನ ಮಾಹಿತಿ
+ಏನು ತಿಳಿಯಬೇಕು?',
+        'error':'ಕ್ಷಮಿಸಿ, ಏನೋ ತಪ್ಪಾಗಿದೆ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
+        'not_found':'ಕ್ಷಮಿಸಿ, ಈ ಮಾಹಿತಿ ಸಿಕ್ಕಿಲ್ಲ. ದಯವಿಟ್ಟು ಸರಿಯಾದ ವಿವರಗಳನ್ನು ನೀಡಿ.',
+        'welcome':'Singh Ji AI ಗೆ ಸ್ವಾಗತ! 🙏'
+    },
+    'ml': {
+        'train_status':'ട്രെയിൻ {number} ഇപ്പോൾ {location} സ്റ്റേഷനിലാണ്. വരവ് സമയം: {eta}.',
+        'train_delayed':'ട്രെയിൻ {number} {delay} മിനിറ്റ് വൈകിയിരിക്കുന്നു. ഇപ്പോൾ {location} ഇലാണ്.',
+        'train_arrived':'ട്രെയിൻ {number} {location} സ്റ്റേഷനിൽ എത്തി.',
+        'mandi_rate':'{commodity} വില ₹{price} ക്വിന്റലിന്. മാർക്കറ്റ്: {market}.',
+        'mandi_update':'{market} ഇൽ {commodity} ₹{price} ക്വിന്റലിന്.',
+        'weather':'{city} കാലാവസ്ഥ: {condition}, താപനില {temp}°C. ആർദ്രത {humidity}%.',
+        'weather_forecast':'{city} പ്രവചനം: {condition}, പരമാവധി {max_temp}°C, കുറഞ്ഞ {min_temp}°C.',
+        'greeting':'നമസ്കാരം! 🙏 ഞാൻ Singh Ji AI ആണ്. ട്രെയിൻ, മണ്ഡി വില, അല്ലെങ്കിൽ കാലാവസ്ഥ വിവരം വേണോ?',
+        'help':'ഞാൻ നിങ്ങളെ സഹായിക്കാം:
+🚂 ട്രെയിൻ നില
+🌾 മണ്ഡി വില
+🌤️ കാലാവസ്ഥ വിവരം
+എന്താണ് അറിയേണ്ടത്?',
+        'error':'ക്ഷമിക്കണം, എന്തോ തെറ്റായി. വീണ്ടും ശ്രമിക്കുക.',
+        'not_found':'ക്ഷമിക്കണം, ഈ വിവരം കണ്ടെത്താനായില്ല. ശരിയായ വിശദാംശങ്ങൾ നൽകുക.',
+        'welcome':'Singh Ji AI ലേക്ക് സ്വാഗതം! 🙏'
+    },
+    'or': {
+        'train_status':'ଟ୍ରେନ୍ {number} ବର୍ତ୍ତମାନ {location} ଷ୍ଟେସନରେ ଅଛି। ଆଗମନ ସମୟ: {eta}।',
+        'train_delayed':'ଟ୍ରେନ୍ {number} {delay} ମିନିଟ୍ ବିଳମ୍ବିତ ହୋଇଛି। ବର୍ତ୍ତମାନ {location} ରେ ଅଛି।',
+        'train_arrived':'ଟ୍ରେନ୍ {number} {location} ଷ୍ଟେସନରେ ପହଞ୍ଚିଛି।',
+        'mandi_rate':'{commodity} ଦର ₹{price} ପ୍ରତି କ୍ୱିଣ୍ଟାଲ୍। ବଜାର: {market}।',
+        'mandi_update':'{market} ରେ {commodity} ₹{price} ପ୍ରତି କ୍ୱିଣ୍ଟାଲ୍।',
+        'weather':'{city} ପାଣିପାଗ: {condition}, ତାପମାତ୍ରା {temp}°C। ଆର୍ଦ୍ରତା {humidity}%。',
+        'weather_forecast':'{city} ପୂର୍ବାନୁମାନ: {condition}, ସର୍ବାଧିକ {max_temp}°C, ସର୍ବନିମ୍ନ {min_temp}°C।',
+        'greeting':'ନମସ୍କାର! 🙏 ମୁଁ Singh Ji AI। ଟ୍ରେନ୍, ମଣ୍ଡି ଦର, କିମ୍ବା ପାଣିପାଗ ସୂଚନା ଚାହାଁନ୍ତି?',
+        'help':'ମୁଁ ଆପଣଙ୍କୁ ସାହାଯ୍ୟ କରିପାରିବି:
+🚂 ଟ୍ରେନ୍ ସ୍ଥିତି
+🌾 ମଣ୍ଡି ଦର
+🌤️ ପାଣିପାଗ ସୂଚନା
+କଣ ଜାଣିବାକୁ ଚାହାଁନ୍ତି?',
+        'error':'କ୍ଷମା କରନ୍ତୁ, କିଛି ଭୁଲ୍ ହୋଇଛି। ଦୟାକରି ପୁନର୍ବାର ଚେଷ୍ଟା କରନ୍ତୁ।',
+        'not_found':'କ୍ଷମା କରନ୍ତୁ, ଏହି ସୂଚନା ମିଳିଲା ନାହିଁ। ଦୟାକରି ସଠିକ୍ ବିବରଣ ଦିଅନ୍ତୁ।',
+        'welcome':'Singh Ji AI କୁ ସ୍ୱାଗତ! 🙏'
+    },
+    'ur': {
+        'train_status':'ٹرین {number} ابھی {location} اسٹیشن پر ہے۔ آمد کا وقت: {eta}۔',
+        'train_delayed':'ٹرین {number} {delay} منٹ لیٹ ہے۔ ابھی {location} پر ہے۔',
+        'train_arrived':'ٹرین {number} {location} اسٹیشن پہنچ چکی ہے۔',
+        'mandi_rate':'{commodity} کی قیمت ₹{price} فی کوئنٹل۔ بازار: {market}۔',
+        'mandi_update':'{market} میں {commodity} ₹{price} فی کوئنٹل۔',
+        'weather':'{city} میں موسم: {condition}, درجہ حرارت {temp}°C۔ نمی {humidity}%。',
+        'weather_forecast':'{city} کا پیشنگوئی: {condition}, زیادہ سے زیادہ {max_temp}°C, کم سے کم {min_temp}°C۔',
+        'greeting':'السلام علیکم! 🙏 میں Singh Ji AI ہوں۔ ٹرین، منڈی بھاؤ، یا موسم کی معلومات چاہیے؟',
+        'help':'میں آپ کی مدد کر سکتا ہوں:
+🚂 ٹرین کی حالت
+🌾 منڈی بھاؤ
+🌤️ موسم کی معلومات
+کیا جاننا چاہیں گے؟',
+        'error':'معذرت، کچھ غلط ہو گیا۔ براہ کرم دوبارہ کوشش کریں۔',
+        'not_found':'معذرت، یہ معلومات نہیں ملی۔ براہ کرم صحیح تفصیلات دیں۔',
+        'welcome':'Singh Ji AI میں خوش آمدید! 🙏'
+    },
+    'as': {
+        'train_status':'ট্ৰেন {number} বৰ্তমান {location} ষ্টেচনত আছে। আগমনৰ সময়: {eta}।',
+        'train_delayed':'ট্ৰেন {number} {delay} মিনিট পলম হৈছে। বৰ্তমান {location} ত আছে।',
+        'train_arrived':'ট্ৰেন {number} {location} ষ্টেচনত উপস্থিত হৈছে।',
+        'mandi_rate':'{commodity} ৰ দৰ ₹{price} প্ৰতি কুইন্টল। বজাৰ: {market}।',
+        'mandi_update':'{market} ত {commodity} ₹{price} প্ৰতি কুইন্টল।',
+        'weather':'{city} ত বতৰ: {condition}, তাপমাত্ৰা {temp}°C। আৰ্দ্ৰতা {humidity}%。',
+        'weather_forecast':'{city} ৰ পূৰ্বানুমান: {condition}, সৰ্বোচ্চ {max_temp}°C, সৰ্বনিম্ন {min_temp}°C।',
+        'greeting':'নমস্কাৰ! 🙏 মই Singh Ji AI। ট্ৰেন, মণ্ডি দৰ, বা বতৰৰ তথ্য লাগে নেকি?',
+        'help':'মই আপোনাক সহায় কৰিব পাৰো:
+🚂 ট্ৰেনৰ অৱস্থা
+🌾 মণ্ডি দৰ
+🌤️ বতৰৰ তথ্য
+কি জানিব বিচাৰে?',
+        'error':'ক্ষমা কৰিব, কিবা সমস্যা হৈছে। অনুগ্ৰহ কৰি পুনৰ চেষ্টা কৰক।',
+        'not_found':'ক্ষমা কৰিব, এই তথ্য পোৱা নগল। অনুগ্ৰহ কৰি সঠিক বিৱৰণ দিয়ক।',
+        'welcome':'Singh Ji AI ত স্বাগতম! 🙏'
+    },
+    'ne': {
+        'train_status':'रेल {number} अहिले {location} स्टेसनमा छ। आगमन समय: {eta}।',
+        'train_delayed':'रेल {number} {delay} मिनेट ढिलो छ। अहिले {location} मा छ।',
+        'train_arrived':'रेल {number} {location} स्टेसनमा आइपुगेको छ।',
+        'mandi_rate':'{commodity} को मूल्य ₹{price} प्रति क्विन्टल। बजार: {market}।',
+        'mandi_update':'{market} मा {commodity} ₹{price} प्रति क्विन्टल।',
+        'weather':'{city} मा मौसम: {condition}, तापक्रम {temp}°C। आर्द्रता {humidity}%。',
+        'weather_forecast':'{city} को पूर्वानुमान: {condition}, अधिकतम {max_temp}°C, न्यूनतम {min_temp}°C।',
+        'greeting':'नमस्ते! 🙏 म Singh Ji AI हुँ। रेल, मण्डी मूल्य, वा मौसम जानकारी चाहिन्छ?',
+        'help':'म तपाईंलाई मद्दत गर्न सक्छु:
+🚂 रेलको स्थिति
+🌾 मण्डी मूल्य
+🌤️ मौसम जानकारी
+के जान्न चाहनुहुन्छ?',
+        'error':'माफ गर्नुहोस्, केही गडबड भयो। कृपया फेरि प्रयास गर्नुहोस्।',
+        'not_found':'माफ गर्नुहोस्, यो जानकारी भेटिएन। कृपया सही विवरण दिनुहोस्।',
+        'welcome':'Singh Ji AI मा स्वागत छ! 🙏'
+    },
+    'si': {
+        'train_status':'ٽرين {number} هن وقت {location} اسٽيشن تي آهي. اچڻ جو وقت: {eta}.',
+        'train_delayed':'ٽرين {number} {delay} منٽ دير آهي. هن وقت {location} تي آهي.',
+        'train_arrived':'ٽرين {number} {location} اسٽيشن تي پهتي چڪي آهي.',
+        'mandi_rate':'{commodity} جي قيمت ₹{price} في ڪوئنٽل. مارڪيٽ: {market}.',
+        'mandi_update':'{market} ۾ {commodity} ₹{price} في ڪوئنٽل.',
+        'weather':'{city} ۾ موسم: {condition}, درجه حرارت {temp}°C. نمي {humidity}%.',
+        'weather_forecast':'{city} جو اندازو: {condition}, وڌ ۾ وڌ {max_temp}°C, گهٽ ۾ گهٽ {min_temp}°C.',
+        'greeting':'سلام! 🙏 مان Singh Ji AI آهيان. ٽرين، منڊي قيمت، يا موسم جي ڄاڻ گهرجي؟',
+        'help':'مان توهان جي مدد ڪري سگهان ٿو:
+🚂 ٽرين جي حالت
+🌾 منڊي قيمت
+🌤️ موسم جي ڄاڻ
+ڇا ڄاڻڻ گهرجي؟',
+        'error':'معاف ڪجو، ڪجهه غلط ٿيو. مهرباني ڪري ٻيهر ڪوشش ڪريو.',
+        'not_found':'معاف ڪجو، هي ڄاڻ نه ملي. مهرباني ڪري صحيح تفصيل ڏيو.',
+        'welcome':'Singh Ji AI ۾ خوش آمديد! 🙏'
+    },
+    'ks': {
+        'train_status':'ٹرین {number} ابھی {location} اسٹیشن پر ہے۔ آمد کا وقت: {eta}۔',
+        'train_delayed':'ٹرین {number} {delay} منٹ لیٹ ہے۔ ابھی {location} پر ہے۔',
+        'train_arrived':'ٹرین {number} {location} اسٹیشن پہنچ چکی ہے۔',
+        'mandi_rate':'{commodity} کی قیمت ₹{price} فی کوئنٹل۔ بازار: {market}۔',
+        'mandi_update':'{market} میں {commodity} ₹{price} فی کوئنٹل۔',
+        'weather':'{city} میں موسم: {condition}, درجہ حرارت {temp}°C۔ نمی {humidity}%。',
+        'weather_forecast':'{city} کا پیشنگوئی: {condition}, زیادہ سے زیادہ {max_temp}°C, کم سے کم {min_temp}°C۔',
+        'greeting':'السلام علیکم! 🙏 میں Singh Ji AI ہوں۔ ٹرین، منڈی بھاؤ، یا موسم کی معلومات چاہیے؟',
+        'help':'میں آپ کی مدد کر سکتا ہوں:
+🚂 ٹرین کی حالت
+🌾 منڈی بھاؤ
+🌤️ موسم کی معلومات
+کیا جاننا چاہیں گے؟',
+        'error':'معذرت، کچھ غلط ہو گیا۔ براہ کرم دوبارہ کوشش کریں۔',
+        'not_found':'معذرت، یہ معلومات نہیں ملی۔ براہ کرم صحیح تفصیلات دیں۔',
+        'welcome':'Singh Ji AI میں خوش آمدید! 🙏'
+    },
+    'kok': {
+        'train_status':'ट्रेन {number} सद्या {location} स्टेशनार आसा। येवपाचो वेळ: {eta}.',
+        'train_delayed':'ट्रेन {number} {delay} मिनिटां उशीर आसा। सद्या {location} वर आसा.',
+        'train_arrived':'ट्रेन {number} {location} स्टेशनार पावली.',
+        'mandi_rate':'{commodity} चो भाव ₹{price} प्रति क्विंटल. बाजार: {market}.',
+        'mandi_update':'{market} आनी {commodity} ₹{price} प्रति क्विंटल.',
+        'weather':'{city} वातावरण: {condition}, तापमान {temp}°C. आर्द्रता {humidity}%.',
+        'weather_forecast':'{city} चो अंदाज: {condition}, वाड {max_temp}°C, कमी {min_temp}°C.',
+        'greeting':'नमस्कार! 🙏 हांव Singh Ji AI। ट्रेन, मंडी भाव, वा वातावरणाची माहिती जाय?',
+        'help':'हांव तुमकां मदत करूं येतलो:
+🚂 ट्रेन स्थिती
+🌾 मंडी भाव
+🌤️ वातावरण माहिती
+कितें जाणून घेवचें?',
+        'error':'माफ करात, कितें चूक जाली। उपकार करून परत यत्न करात.',
+        'not_found':'माफ करात, ही माहिती मेळना। उपकार करून योग्य तपशील दियात.',
+        'welcome':'Singh Ji AI कडेन तुमचें स्वागत! 🙏'
+    },
+    'mai': {
+        'train_status':'ट्रेन {number} अखन {location} स्टेशन पर अछि। आबैक समय: {eta}।',
+        'train_delayed':'ट्रेन {number} {delay} मिनट लेट अछि। अखन {location} पर अछि।',
+        'train_arrived':'ट्रेन {number} {location} स्टेशन पहुँच गेल अछि।',
+        'mandi_rate':'{commodity} क भाव ₹{price} प्रति क्विंटल। मंडी: {market}।',
+        'mandi_update':'{market} मे {commodity} ₹{price} प्रति क्विंटल।',
+        'weather':'{city} मे मौसम: {condition}, तापमान {temp}°C। नमी {humidity}%。',
+        'weather_forecast':'{city} क पूर्वानुमान: {condition}, बेसी से बेसी {max_temp}°C, कम से कम {min_temp}°C।',
+        'greeting':'प्रणाम! 🙏 हम Singh Ji AI छी। ट्रेन, मंडी भाव, वा मौसम क जानकारी चाही?',
+        'help':'हम अहाँक मदद कर सकैत छी:
+🚂 ट्रेन क स्थिति
+🌾 मंडी भाव
+🌤️ मौसम जानकारी
+का जानल चाहत छी?',
+        'error':'क्षमा करू, किछु गड़बड़ भ गेल। कृपया फिनु सँ प्रयास करू।',
+        'not_found':'क्षमा करू, ई जानकारी नहि मिलल। कृपया सही बिवरण दिअ।',
+        'welcome':'Singh Ji AI मे अहाँक स्वागत अछि! 🙏'
+    },
+    'mni': {
+        'train_status':'ট্ৰেন {number} মতুংদা {location} স্টেশনদা লেইরে। লাকপগী সময়: {eta}।',
+        'train_delayed':'ট্ৰেন {number} {delay} মিনিট লেত অমসুং মতুংদা {location}দা লেইরে।',
+        'train_arrived':'ট্ৰেন {number} {location} স্টেশনদা লাকপগে।',
+        'mandi_rate':'{commodity} গী দমক ₹{price} কুইন্টাল প্রতি। মার্কেট: {market}।',
+        'mandi_update':'{market}দা {commodity} ₹{price} কুইন্টাল প্রতি।',
+        'weather':'{city}দা পোকপা: {condition}, তাপমাত্রা {temp}°C। চুপচিল {humidity}%。',
+        'weather_forecast':'{city} গী পূর্বানুমান: {condition}, মকোলবা {max_temp}°C, নিফিবা {min_temp}°C।',
+        'greeting':'খুরুমজরি! 🙏 অই Singh Ji AI নি। ট্ৰেন, মণ্ডি দমক, নত্রগা পোকপা পাংথোকপা পীরিব্রা?',
+        'help':'অই নংগী মতুংদা পাংথোকপা য়াই:
+🚂 ট্ৰেন গী স্ত্যাতস
+🌾 মণ্ডি দমক
+🌤️ পোকপা পাংথোকপা
+করিগুম্বা পীব্রা?',
+        'error':'থাজবি য়াব্রা, করিগুম্বা ফজবা লৈরে। করিগুম্বা মতুং ইন্না য়াওবিগনি।',
+        'not_found':'থাজবি য়াব্রা, মসিগী পাংথোকপা ফংদ্রে। করিগুম্বা য়াম্না বিবরণ পীবিগনি।',
+        'welcome':'Singh Ji AI দা লাকপগনুপা লৈরিবা! 🙏'
+    },
+    'sat': {
+        'train_status':'ᱴᱨᱮᱱ {number} ᱱᱤᱛᱚᱜ {location} ᱥᱴᱮᱥᱚᱱ ᱨᱮ ᱢᱮᱱᱟᱜᱼᱟ। ᱥᱮᱫ ᱚᱠᱛᱟ: {eta}।',
+        'train_delayed':'ᱴᱨᱮᱱ {number} {delay} ᱴᱤᱯᱤᱡ ᱵᱤᱞᱚᱢ ᱠᱟᱱᱟ। ᱱᱤᱛᱚᱜ {location} ᱨᱮ ᱢᱮᱱᱟᱜᱼᱟ।',
+        'train_arrived':'ᱴᱨᱮᱱ {number} {location} ᱥᱴᱮᱥᱚᱱ ᱨᱮ ᱥᱮᱛ ᱠᱟᱱᱟ।',
+        'mandi_rate':'{commodity} ᱨᱮᱭᱟᱜ ᱫᱟᱢ ₹{price} ᱠᱣᱤᱱᱴᱟᱞ ᱛᱤᱱᱨᱮ। ᱵᱟᱡᱟᱨ: {market}।',
+        'mandi_update':'{market} ᱨᱮ {commodity} ₹{price} ᱠᱣᱤᱱᱴᱟᱞ ᱛᱤᱱᱨᱮ।',
+        'weather':'{city} ᱨᱮ ᱦᱚᱭᱦᱤᱥᱤᱫ: {condition}, ᱴᱟᱹᱯᱢᱟᱹᱱ {temp}°C। ᱡᱚᱞ {humidity}%。',
+        'weather_forecast':'{city} ᱨᱮᱭᱟᱜ ᱥᱟᱹᱜᱩᱱ ᱞᱮᱠᱷᱟ: {condition}, ᱥᱟᱹᱜᱩᱱ ᱠᱚᱢ {max_temp}°C, ᱥᱟᱹᱜᱩᱱ ᱠᱚᱢ {min_temp}°C।',
+        'greeting':'ᱡᱚᱦᱟᱨ! 🙏 ᱤᱧ Singh Ji AI ᱠᱟᱱᱟ᱾ ᱴᱨᱮᱱ, ᱢᱟᱱᱰᱤ ᱫᱟᱢ, ᱵᱟᱝ ᱦᱚᱭᱦᱤᱥᱤᱫ ᱵᱟᱲᱛᱤ ᱫᱚᱨᱠᱟᱨ ᱠᱟᱱᱟ?',
+        'help':'ᱤᱧ ᱟᱢᱟᱜ ᱜᱚᱲᱚ ᱞᱟᱹᱜᱤᱫ ᱜᱚᱲᱚ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ:
+🚂 ᱴᱨᱮᱱ ᱦᱟᱞᱟᱛ
+🌾 ᱢᱟᱱᱰᱤ ᱫᱟᱢ
+🌤️ ᱦᱚᱭᱦᱤᱥᱤᱫ ᱵᱟᱲᱛᱤ
+ᱪᱮᱫ ᱵᱟᱲᱛᱤ ᱫᱚᱨᱠᱟᱨ ᱠᱟᱱᱟ?',
+        'error':'ᱠᱚᱥᱴᱚ ᱜᱚᱲᱚ, ᱪᱮᱫ ᱵᱟᱝ ᱥᱟᱹᱦᱤᱡ ᱠᱟᱱᱟ। ᱫᱟᱭᱟ ᱠᱟᱛᱮ ᱫᱩᱦᱲᱟᱹ ᱠᱚᱭᱮᱡᱟ ᱢᱮ।',
+        'not_found':'ᱠᱚᱥᱴᱚ ᱜᱚᱲᱚ, ᱱᱚᱣᱟ ᱵᱟᱲᱛᱤ ᱵᱟᱝ ᱧᱟᱢ ᱞᱮᱱᱟ। ᱫᱟᱭᱟ ᱠᱟᱛᱮ ᱥᱟᱹᱨᱤ ᱵᱤᱵᱨᱚᱬ ᱮᱢ ᱢᱮ।',
+        'welcome':'Singh Ji AI ᱨᱮ ᱟᱢᱟᱜ ᱥᱚᱜᱩᱱ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ! 🙏'
+    },
+    'sd': {
+        'train_status':'रेलयानम् {number} वर्तमाने {location} स्टेशने अस्ति। आगमनकालः {eta}।',
+        'train_delayed':'रेलयानम् {number} {delay} निमेषाणि विलम्बेन अस्ति। वर्तमाने {location} अस्ति।',
+        'train_arrived':'रेलयानम् {number} {location} स्टेशनं प्राप्तवती।',
+        'mandi_rate':'{commodity} मूल्यं ₹{price} प्रति क्विन्टल्। बाजारः {market}।',
+        'mandi_update':'{market} मध्ये {commodity} ₹{price} प्रति क्विन्टल्।',
+        'weather':'{city} मध्ये वातावरणम्: {condition}, तापमानम् {temp}°C। आर्द्रता {humidity}%。',
+        'weather_forecast':'{city} पूर्वानुमानम्: {condition}, उच्चतमम् {max_temp}°C, न्यूनतमम् {min_temp}°C।',
+        'greeting':'नमस्ते! 🙏 अहं Singh Ji AI अस्मि। रेलयानम्, मण्डीमूल्यम्, वा वातावरणसूचनां जिज्ञासे?',
+        'help':'अहं भवतः साहाय्यं कर्तुं शक्नोमि:
+🚂 रेलयानस्य स्थितिः
+🌾 मण्डीमूल्यम्
+🌤️ वातावरणसूचना
+किं ज्ञातुम् इच्छति?',
+        'error':'क्षम्यताम्, किमपि दोषः जातः। कृपया पुनः प्रयत्नं कुरुत।',
+        'not_found':'क्षम्यताम्, एतत् सूचना न लब्धा। कृपया यथार्थविवरणं ददातु।',
+        'welcome':'Singh Ji AI मध्ये स्वागतम्! 🙏'
+    },
+    'en': {
+        'train_status':'Train {number} is currently at {location} station. ETA: {eta}.',
+        'train_delayed':'Train {number} is delayed by {delay} minutes. Currently at {location}.',
+        'train_arrived':'Train {number} has arrived at {location} station.',
+        'mandi_rate':'{commodity} rate is ₹{price} per quintal. Market: {market}.',
+        'mandi_update':'{commodity} at {market}: ₹{price} per quintal.',
+        'weather':'{city} weather: {condition}, {temp}°C. Humidity: {humidity}%.',
+        'weather_forecast':'{city} forecast: {condition}, high {max_temp}°C, low {min_temp}°C.',
+        'greeting':'Hello! 🙏 I am Singh Ji AI. Need train status, mandi rates, or weather info?',
+        'help':'I can help you with:
+🚂 Train status
+🌾 Mandi rates
+🌤️ Weather info
+What would you like to know?',
+        'error':'Sorry, something went wrong. Please try again.',
+        'not_found':'Sorry, this information was not found. Please provide correct details.',
+        'welcome':'Welcome to Singh Ji AI! 🙏'
+    }
+}
+
+
+def detect_language(text):
+    if not text or not isinstance(text, str):
+        return 'en'
+    text = text.strip()
+    lang_order = ['bn','pa','ta','te','gu','kn','ml','or','ur','as','mni','sat',
+                  'hi','mr','bho','ne','kok','mai','sd','si','ks','en']
+    for code in lang_order:
+        if any(c in LANGUAGE_PROFILES[code]['chars'] for c in text):
+            return code
+    return 'en'
+
+
+def get_response_template(lang_code, template_key, **kwargs):
+    templates = RESPONSE_TEMPLATES.get(lang_code, RESPONSE_TEMPLATES['en'])
+    template = templates.get(template_key, templates.get('error', 'Error occurred.'))
+    try:
+        return template.format(**kwargs)
+    except KeyError:
+        return template
+
+
+def get_tts_code(lang_code):
+    return LANGUAGE_PROFILES.get(lang_code, LANGUAGE_PROFILES['en'])['tts_code']
+
+
+def get_language_name(lang_code):
+    return LANGUAGE_PROFILES.get(lang_code, LANGUAGE_PROFILES['en'])['name']
